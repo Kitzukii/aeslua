@@ -13,7 +13,7 @@ for _,file in ipairs(files) do
     local parentdir=file[1]
     local filename=file[2]
     print(tostring(index)..": "..filename)
-    local content=http.get(mainuri..filename)
+    local content=http.get(mainuri..filename).readAll()
     local ff=fs.open(parentdir..filename,"w")
     ff.write(content);ff.close()
     index=index+1
